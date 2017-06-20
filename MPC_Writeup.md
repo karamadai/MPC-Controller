@@ -46,7 +46,7 @@ The way points feed provided by the simulator is in the global co-ordinate syste
             ptsx[i]=(shift_x*cos(0-psi)-shift_y*sin(0-psi));
             ptsy[i]=(shift_x*sin(0-psi)+shift_y*cos(0-psi));
      }
-A Third order polynomial is now fitted to the transformed way points.  The cross track error and the heading error with reference to the fitted polynomial is computed at x=0. Since the way points are transformed to the car's coordinate system the car is now located at the origin with px=0, py=0 and psi=0.  Hence,  the state vectors  is represented as:
+A third order polynomial is now fitted to the transformed way points.  The cross track error and the heading error with reference to the fitted polynomial is computed at x=0. Since the way points are transformed to the car's coordinate system the car is now located at the origin with px=0, py=0 and psi=0.  Hence,  the state vectors  is represented as:
 
 	State=[0, 0, 0, v, psi]
 
@@ -102,4 +102,4 @@ The constraints on the model is applied by the following lines of code for each 
 **Predicting with Latency**
 The model predictive controller accounts for latency in mechanical systems by predicting the state of the vehicle at the point of time when the actuation will have an effect (t+latency_time) and then determine the actuator input needed to minimize the cost at the projected state. 
 
-The project uses a latency of 100 milliseconds with 10 time steps and a time interval between  steps as 0.1 (100 milliseconds). Hence the actuator values obtained after the first prediction step time is used fed a control input to the simulator.
+The project uses a latency of 100 milliseconds with 10 time steps and a time interval between  steps as 0.1 (100 milliseconds). Hence the actuator values obtained after the first prediction step time is fed as the control input to the simulator.
